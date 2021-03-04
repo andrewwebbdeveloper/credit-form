@@ -1,15 +1,18 @@
 import './App.css';
+import Form from "./components/Form";
+import CardContainer from './components/CardContainer';
 
 function App() {
   return (
     <main className="page-grid">
-      <div className="page-grid-sidebar" ></div>
+      <div className="page-grid-spacer" ></div>
       <section className="page-grid-main" style={{background: "cornflowerblue"}}>
-        <div className="form-container"></div>
-          {/*//TODO: Contents Here*/}
-
+        <div className="content-container">
+          <CardContainer/>
+          <Form/>
+        </div>
       </section>
-      <div className="page-grid-sidebar"></div>
+      <div className="page-grid-spacer"></div>
     </main>
   );
 }
