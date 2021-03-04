@@ -2,9 +2,15 @@ import React from 'react'
 
 function Form() {
   return (
-    <div>
-      
-    </div>
+    <form>
+       {/* Inputs Will go here */}
+       <input type="text"></input>
+       <input type="text"></input>
+       <input type="text"></input>
+       <input type="text"></input>
+       <input type="text"></input>
+       <input type="text"></input>
+    </form>
   )
 }
 
