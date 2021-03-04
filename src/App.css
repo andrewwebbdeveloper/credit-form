@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./fonts/Montserrat-Regular.ttf) format('opentype');
+}
+
 html {
+  font-family: Montserrat;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -35,14 +41,69 @@ body {
 .content-container {
   width: 100%;
   outline: 2px solid salmon;
-  
 
   display: grid;
   grid-template-areas: 'card form';
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  min-height: 50rem;
+  min-height: 30rem;
   height: min-content;
-  
 
+}
+
+form{
+  display: grid;
+  grid-template-areas: 
+                    'firstName lastName'
+                    'creditCard creditCard'
+                    'expiration securityCode'
+  ;
+  
+}
+
+
+
+/* In case an identifier is needed for grid-area 
+
+.firstName {
+  grid-area: firstName;
+}
+.lastName {
+  grid-area: lastName;
+}
+.creditCard {
+  grid-area: creditCard;
+}
+.expiration {
+  grid-area: expiration;
+}
+.securityCode {
+  grid-area: securityCode;
+} */
+
+/* Input Styling */
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  /* width: 100% */
+
+}
+
+.input-label {
+  font-size: 1rem;
+}
+
+.form-input {
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid #343434;
+}
+
+.form-input:focus {
+  outline: none;
+  border-bottom: 2px solid orangered;
 }
