@@ -1,38 +1,48 @@
-/* .App {
-  text-align: center;
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  max-height: 100%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.page-grid {
+  width: 100vw;
+  height: 100vh;
+ 
+  display: grid;
+  grid-template-columns: 1fr minmax(50rem, 70rem) 1fr;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.page-grid-sidebar, .page-grid-main {
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.page-grid-main {
+  display: grid;
+  align-items: center;
+  
+}
+
+.form-container {
+  width: 100%;
+  outline: 2px solid salmon;
+  
+
+  display: grid;
+  grid-template-areas: 'card form';
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: auto;
+  min-height: 50rem;
+  height: min-content;
+  
+
+}
