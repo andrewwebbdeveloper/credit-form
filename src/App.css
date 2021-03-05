@@ -63,8 +63,6 @@ form{
 
 
 
-/* In case an identifier is needed for grid-area 
-
 .firstName {
   grid-area: firstName;
 }
@@ -79,15 +77,13 @@ form{
 }
 .securityCode {
   grid-area: securityCode;
-} */
+}
 
 /* Input Styling */
 .input-group {
   display: flex;
   flex-direction: column;
-
   padding: 1rem;
-  /* width: 100% */
 
 }
 
