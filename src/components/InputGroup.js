@@ -11,7 +11,9 @@ function InputGroup({
   placeholder,
   addedGroupClasses,
   addedLabelClasses,
-  addedInputClasses
+  addedInputClasses,
+  updateFormField,
+  formState
 }) {
 
   const makeClassString = (classesArray = [], defaults = [],) => {
@@ -21,11 +23,6 @@ function InputGroup({
   const groupClasses = makeClassString(addedGroupClasses, ['input-group'])
   const labelClasses = makeClassString(addedLabelClasses, ['input-label'])
   const inputClasses = makeClassString(addedInputClasses, ['form-input'])
-  
-  // Simulating formatted value
-  const formattedValue = value.split('').map((x, i) => i % 2 === 0 ? x + ' ' : x).join('')
-  
-
   
   return (
     <div className={groupClasses}>
@@ -42,8 +39,8 @@ function InputGroup({
         placeholder={placeholder}
         name={name}
         pattern={pattern}
-        value={formattedValue}
-        onChange={(e) => console.log(e.target.value)}
+        value={formState.firstName}
+        onChange={(e) => updateFormField('firstName', e.target.value)}
         >
         </input>
     </div>
