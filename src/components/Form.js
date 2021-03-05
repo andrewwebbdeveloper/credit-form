@@ -1,5 +1,5 @@
 import React from 'react'
-import InputGroup from './InputGroup'
+
 import NameInput from './NameInput'
 import CardInput from './CardInput'
 import ExpirationInput from './ExpirationInput'
