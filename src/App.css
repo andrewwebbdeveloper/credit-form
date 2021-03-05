@@ -58,6 +58,7 @@ form{
                     'creditCard creditCard'
                     'expiration securityCode'
   ;
+  margin: 1rem;
   
 }
 
