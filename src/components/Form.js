@@ -1,46 +1,38 @@
 import React from 'react'
 import InputGroup from './InputGroup'
+import NameInput from './NameInput'
+import CardInput from './CardInput'
+import ExpirationInput from './ExpirationInput'
+import SecurityCodeInput from './SecurityCodeInput'
 
 function Form({updateFormField, formState}) {
   return (
     <form>
-       <InputGroup 
+       <NameInput 
         label="First Name"
         name="First Name"
         type="text"
         addedGroupClasses={['firstName']}
-        updateFormField={updateFormField}
-        formState={formState}
+        onChange={(e) => updateFormField('firstName', e.target.value)}
+        value={formState.firstName}
        />
-       <InputGroup 
+       <NameInput 
         label="Last Name"
         name="Last Name"
         type="text"
         addedGroupClasses={['lastName']}
+        onChange={(e) => updateFormField('lastName', e.target.value)}
+        value={formState.lastName}
+       />
+       <CardInput 
         updateFormField={updateFormField}
         formState={formState}
        />
-       <InputGroup 
-        label="Card Number"
-        name="Card Number"
-        type="text"
-        addedGroupClasses={['creditCard']}
+       <ExpirationInput 
         updateFormField={updateFormField}
         formState={formState}
        />
-       <InputGroup 
-        label="Expiration Date"
-        name="Expiration Date"
-        type="text"
-        addedGroupClasses={['expiration']}
-        updateFormField={updateFormField}
-        formState={formState}
-       />
-       <InputGroup 
-        label="Security Code"
-        name="Security Code"
-        type="text"
-        addedGroupClasses={['securityCode']}
+       <SecurityCodeInput 
         updateFormField={updateFormField}
         formState={formState}
        />

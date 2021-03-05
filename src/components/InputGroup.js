@@ -7,13 +7,12 @@ function InputGroup({
   name,
   pattern,
   value = '',
-  // formattedValue = (value) => ,
   placeholder,
+  autoComplete = 'off',
   addedGroupClasses,
   addedLabelClasses,
   addedInputClasses,
-  updateFormField,
-  formState
+  onChange,
 }) {
 
   const makeClassString = (classesArray = [], defaults = [],) => {
@@ -34,13 +33,14 @@ function InputGroup({
       </label>
       <input 
         id={inputId}
+        autoComplete={autoComplete}
         className={inputClasses}
         type={type}
         placeholder={placeholder}
         name={name}
         pattern={pattern}
-        value={formState.firstName}
-        onChange={(e) => updateFormField('firstName', e.target.value)}
+        value={value}
+        onChange={onChange}
         >
         </input>
     </div>
