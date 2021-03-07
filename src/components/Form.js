@@ -63,9 +63,9 @@ function Form({
        />
       <button type="button" onClick={mockSubmitHandle}>{
         isSuccess
-          ? 'Success!! ( Click to Reset )'
+          ? 'Gone!!! ( Click to Reset )'
           : isSending
-            ? 'Going...'
+            ? 'Going!!...'
             : 'Go!'
         }</button>
     </form>

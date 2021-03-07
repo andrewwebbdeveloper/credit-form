@@ -108,11 +108,22 @@ form{
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  transition: all .3s ease-in-out;
 
+}
+
+.input-group:hover {
+  transform: scale(1.01);
 }
 
 .input-label {
   font-size: 1.2rem;
+  transition: all .3s ease-in-out;
+  z-index: -1;
+}
+
+.input-label--placeholder {
+  transform: translate(1px, 26px);
 }
 
 .form-input {
@@ -148,4 +159,9 @@ button {
   border: none;
   border-radius: 5px;
   margin: 1rem;
+  transition: all .1s ease-in-out;
+}
+
+button:hover {
+  background: #49a508;
 }
