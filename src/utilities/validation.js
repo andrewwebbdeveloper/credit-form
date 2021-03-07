@@ -1,5 +1,8 @@
 
 
+export const checkNameField = (value) => {
+  return !!value.length
+}
 
 export const checkSecurityCode = (code) => {
   return code.length === 3 || code.length === 4
@@ -8,18 +11,17 @@ export const checkSecurityCode = (code) => {
 
 export const checkIsExpired = (inputDate) => {
   // inputDate is cleaned/reduced to a 4 digit number where the first two digits are the month and the last two are the year. 
-
-  if (inputDate.length < 4) return true; // Not full date
+  if (inputDate.length !==  4) return true; // Not full date
 
   const today = new Date()
 
-  const expirationMonth = inputDate.substring
+  const expirationMonth = inputDate.substring(0, 2)
   const expirationYear = getFullExpirationYear(today, inputDate)
 
   // First day of the following month
   const expirationDate = new Date(expirationYear, expirationMonth, 1)
 
-  if (expirationDate < today.getTime()) {
+  if (expirationDate < today) {
     return true // Card has expired
   }
 
@@ -40,8 +42,8 @@ const getFullExpirationYear = (today, inputDate) => {
   const nextCentury = parseInt(`${(parseInt(todayYearPrefix) + 1).toString()}${inputSuffix}`)
 
   const centuries = [lastCentury, thisCentury, nextCentury].map(c => ({
-    ['century']: c.toString(),
-    ['timeDifference']: Math.abs(todayYear - c)
+    century: c.toString(),
+    timeDifference: Math.abs(todayYear - c)
   }))
 
   const centriesSortedByDifference = centuries.sort((a, b) => a.timeDifference - b.timeDifference)
@@ -56,6 +58,12 @@ const getFullExpirationYear = (today, inputDate) => {
 
 // Takes a credit card string value and returns true on valid number
 export const validateIsCardNumber = (creditCardValue) => {
+
+  // Must have length
+  if (!(creditCardValue.length > 0)) return false;
+  
+  // Must contain number other than zero
+  if (!(parseInt(creditCardValue) > 0)) return false;
 
   // Accept only digits, dashes or spaces
   if (/[^0-9-\s]+/.test(creditCardValue)) return false;
@@ -74,5 +82,5 @@ export const validateIsCardNumber = (creditCardValue) => {
     bEven = !bEven;
   }
 
-  return (nCheck % 10) == 0;
+  return (nCheck % 10) === 0;
 }

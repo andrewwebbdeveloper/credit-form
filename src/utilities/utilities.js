@@ -28,6 +28,10 @@ export const enforceNoAlphaChars = ({value, previousValue}) => {
 
 // Special Display Formatting
 
+export const generateInputErrorClass = (isError) => {
+  return isError ? 'input-error' : ''
+}
+
 export const expirationDisplayValue = (value) => {
 
   let formattedString = ''

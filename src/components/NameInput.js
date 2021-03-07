@@ -6,6 +6,7 @@ function NameInput({
   name,
   type,
   addedGroupClasses,
+  addedInputClasses,
   onChange,
   value
 }) {
@@ -15,6 +16,7 @@ function NameInput({
         name={name}
         type={type}
         addedGroupClasses={addedGroupClasses}
+        addedInputClasses={addedInputClasses}
         onChange={onChange}
         value={value}
        />

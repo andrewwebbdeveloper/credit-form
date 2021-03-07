@@ -22,6 +22,8 @@ function InputGroup({
   const groupClasses = makeClassString(addedGroupClasses, ['input-group'])
   const labelClasses = makeClassString(addedLabelClasses, ['input-label'])
   const inputClasses = makeClassString(addedInputClasses, ['form-input'])
+
+  // console.log(inputClasses)
   
   return (
     <div className={groupClasses}>

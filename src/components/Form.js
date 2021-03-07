@@ -4,8 +4,19 @@ import NameInput from './NameInput'
 import CardInput from './CardInput'
 import ExpirationInput from './ExpirationInput'
 import SecurityCodeInput from './SecurityCodeInput'
+import {generateInputErrorClass} from '../utilities/utilities'
 
-function Form({updateFormField, formState}) {
+function Form({
+  updateFormField,
+  getErrorField,
+  updateErrorField,
+  mockSubmitHandle,
+  isSending,
+  isSuccess,
+  formState
+}) {
+
+
   return (
     <form>
        <NameInput 
@@ -13,7 +24,11 @@ function Form({updateFormField, formState}) {
         name="First Name"
         type="text"
         addedGroupClasses={['firstName']}
-        onChange={(e) => updateFormField('firstName', e.target.value)}
+        addedInputClasses={[generateInputErrorClass(getErrorField('firstName'))]}
+        onChange={(e) => {
+          updateFormField('firstName', e.target.value)
+          updateErrorField('firstName', false)
+          }}
         value={formState.firstName}
        />
        <NameInput 
@@ -21,21 +36,38 @@ function Form({updateFormField, formState}) {
         name="Last Name"
         type="text"
         addedGroupClasses={['lastName']}
-        onChange={(e) => updateFormField('lastName', e.target.value)}
+        addedInputClasses={[generateInputErrorClass(getErrorField('lastName'))]}
+        onChange={(e) => {
+          updateFormField('lastName', e.target.value)
+          updateErrorField('lastName', false)
+        }}
         value={formState.lastName}
        />
        <CardInput 
         updateFormField={updateFormField}
         formState={formState}
+        getErrorField={getErrorField}
+        updateErrorField={updateErrorField}
        />
        <ExpirationInput 
         updateFormField={updateFormField}
         formState={formState}
+        getErrorField={getErrorField}
+        updateErrorField={updateErrorField}
        />
        <SecurityCodeInput 
         updateFormField={updateFormField}
         formState={formState}
+        getErrorField={getErrorField}
+        updateErrorField={updateErrorField}
        />
+      <button type="button" onClick={mockSubmitHandle}>{
+        isSuccess
+          ? 'Success!! ( Click to Reset )'
+          : isSending
+            ? 'Going...'
+            : 'Go'
+        }</button>
     </form>
   )
 }

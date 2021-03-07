@@ -1,9 +1,11 @@
 import React from 'react'
 import InputGroup from './InputGroup'
-import {removeSpaces, enforceCharLimit, enforceNoAlphaChars, removeNonSlashSymbols, removeSlashes} from '../utilities/utilities'
+import {removeSpaces, enforceCharLimit, enforceNoAlphaChars, removeNonSlashSymbols, removeSlashes, generateInputErrorClass} from '../utilities/utilities'
 
 function SecurityCodeInput({
   updateFormField,
+  getErrorField,
+  updateErrorField,
   formState
 }) {
 
@@ -25,8 +27,12 @@ function SecurityCodeInput({
       name="Security Code"
       type="text"
       addedGroupClasses={['securityCode']}
+      addedInputClasses={[generateInputErrorClass(getErrorField('securityCode'))]}
       updateFormField={updateFormField}
-      onChange={(e) => updateFormField('securityCode', cleanTargetValue(e.target.value, formState.securityCode))}
+      onChange={(e) => {
+        updateFormField('securityCode', cleanTargetValue(e.target.value, formState.securityCode))
+        updateErrorField('securityCode', false)
+    }}
       value={formState.securityCode}
     />
   )

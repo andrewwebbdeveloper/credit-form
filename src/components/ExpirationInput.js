@@ -1,9 +1,11 @@
 import React from 'react'
 import InputGroup from './InputGroup'
-import { removeSlashes, enforceCharLimit, enforceNoAlphaChars, enforceNumberLimit, removeNonSlashSymbols, expirationDisplayValue} from '../utilities/utilities'
+import { removeSlashes, enforceCharLimit, enforceNoAlphaChars, enforceNumberLimit, removeNonSlashSymbols, expirationDisplayValue, generateInputErrorClass} from '../utilities/utilities'
 
 function ExpirationInput({
   updateFormField,
+  getErrorField,
+  updateErrorField,
   formState
 }) {
 
@@ -43,8 +45,12 @@ function ExpirationInput({
       name="Expiration Date"
       type="text"
       addedGroupClasses={['expiration']}
+      addedInputClasses={[generateInputErrorClass(getErrorField('expiration'))]}
       updateFormField={updateFormField}
-      onChange={(e) => updateFormField('expiration', cleanTargetValue(e.target.value, formState.expiration))}
+      onChange={(e) => {
+        updateFormField('expiration', cleanTargetValue(e.target.value, formState.expiration))
+        updateErrorField('expiration', false)
+      }}
       value={expirationDisplayValue(formState.expiration)}
        />
   )

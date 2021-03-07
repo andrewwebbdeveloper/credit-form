@@ -1,9 +1,11 @@
 import React from 'react'
 import InputGroup from './InputGroup'
-import { removeSpaces, enforceCharLimit, enforceNoAlphaChars, removeNonSlashSymbols, removeSlashes, cardDisplayValue} from '../utilities/utilities'
+import { removeSpaces, enforceCharLimit, enforceNoAlphaChars, removeNonSlashSymbols, removeSlashes, cardDisplayValue, generateInputErrorClass} from '../utilities/utilities'
 
 function CardInput({
   updateFormField,
+  getErrorField,
+  updateErrorField,
   formState
 }) {
 
@@ -25,8 +27,12 @@ function CardInput({
       name="Card Number"
       type="text"
       addedGroupClasses={['creditCard']}
+      addedInputClasses={[generateInputErrorClass(getErrorField('cardNumber'))]}
       updateFormField={updateFormField}
-      onChange={(e) => updateFormField('cardNumber', cleanTargetValue(e.target.value, formState.cardNumber))}
+      onChange={(e) => {
+        updateFormField('cardNumber', cleanTargetValue(e.target.value, formState.cardNumber))
+        updateErrorField('cardNumber', false)
+      }}
       value={cardDisplayValue(formState.cardNumber)}
        />
   )
