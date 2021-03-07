@@ -66,7 +66,7 @@ function Form({
           ? 'Success!! ( Click to Reset )'
           : isSending
             ? 'Going...'
-            : 'Go'
+            : 'Go!'
         }</button>
     </form>
   )

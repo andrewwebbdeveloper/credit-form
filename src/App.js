@@ -16,7 +16,7 @@ function App() {
   })
 
   const [errorState, setErrorState] = useState({
-    firstName: true,
+    firstName: false,
     lastName: false,
     cardNumber: false,
     expiration: false,
@@ -142,7 +142,7 @@ function App() {
       <div className="page-grid-spacer" ></div>
       <section className="page-grid-main" /* style={{background: "cornflowerblue"}} */>
         <div className="content-container">
-          <CardContainer/>
+          {/* <CardContainer/> */}
           <Form
           updateFormField={updateFormField}
           getErrorField={getErrorField}

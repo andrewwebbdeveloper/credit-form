@@ -24,10 +24,11 @@ body {
   height: 100vh;
  
   display: grid;
-  grid-template-columns: 1fr minmax(50rem, 70rem) 1fr;
+  grid-template-columns: 1fr minmax(10rem, 30rem) 1fr;
   justify-content: center;
   align-items: center;
 }
+
 
 .page-grid-spacer, .page-grid-main {
   width: 100%;
@@ -44,8 +45,12 @@ body {
   width: 100%;
 
   display: grid;
-  grid-template-areas: 'card form';
-  grid-template-columns: 1fr 1fr;
+  /* Styling to add column for card example
+   grid-template-areas: 'card form';
+  grid-template-columns: 1fr 1fr; 
+  */
+  grid-template-areas: 'form';
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   min-height: 30rem;
   height: min-content;
@@ -62,6 +67,22 @@ form{
   ;
   margin: 1rem;
   
+}
+
+@media only screen and (max-width: 800px) {
+  form{
+    
+    grid-template-areas: 
+                      'firstName' 
+                      'lastName'
+                      'creditCard'
+                      'expiration'
+                      'securityCode'
+                      'button'
+    ;
+    margin: 0.5rem;
+    
+  }
 }
 
 
