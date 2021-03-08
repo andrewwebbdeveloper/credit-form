@@ -38,6 +38,7 @@ body {
 .page-grid-main {
   display: grid;
   align-items: center;
+  justify-content: center;
   
 }
 
@@ -74,7 +75,7 @@ form{
   .content-container {
     min-height: 50rem;
   }
-  
+
   form{
     
     grid-template-areas: 
